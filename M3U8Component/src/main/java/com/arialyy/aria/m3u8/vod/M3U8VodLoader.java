@@ -507,6 +507,7 @@ final class M3U8VodLoader extends BaseM3U8Loader {
   }
 
   @Override public void addComponent(IInfoTask infoTask) {
+    ALog.i(TAG,"----addComponent(IInfoTask infoTask)");
     mInfoTask = infoTask;
     final List<String> urls = new ArrayList<>();
     mInfoTask.setCallback(new IInfoTask.Callback() {

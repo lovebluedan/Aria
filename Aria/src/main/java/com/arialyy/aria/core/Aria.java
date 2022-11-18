@@ -22,6 +22,7 @@ import android.app.Application;
 import android.app.Dialog;
 import android.app.Service;
 import android.content.Context;
+import android.nfc.Tag;
 import android.os.Build;
 import android.widget.PopupWindow;
 import com.arialyy.aria.core.download.DownloadReceiver;
@@ -86,8 +87,10 @@ import com.arialyy.aria.util.CommonUtil;
    */
   public static DownloadReceiver download(Object obj) {
     if (AriaManager.getInstance() != null) {
+      ALog.i("Aria","AriaManager.getInstance().download(obj)");
       return AriaManager.getInstance().download(obj);
     }
+    ALog.i("Aria","get(convertContext(obj)).download(obj);");
     return get(convertContext(obj)).download(obj);
   }
 

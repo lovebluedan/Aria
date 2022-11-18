@@ -17,6 +17,7 @@ package com.arialyy.aria.core.command;
 
 import com.arialyy.aria.core.event.Event;
 import com.arialyy.aria.core.event.EventMsgUtil;
+import com.arialyy.aria.util.ALog;
 import com.arialyy.aria.util.CommonUtil;
 
 /**
@@ -50,11 +51,13 @@ public class CommandManager {
 
   @Event
   public void start(StartCmd cmd) {
+    ALog.i("CommandManager","CommandManager------------- start(StartCmd cmd)");
     cmd.executeCmd();
   }
 
   @Event
   public void stop(StopCmd cmd) {
+    ALog.i("CommandManager","CommandManager------------- stop(StopCmd cmd)");
     cmd.executeCmd();
   }
 

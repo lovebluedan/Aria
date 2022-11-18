@@ -92,15 +92,24 @@ final public class M3U8InfoTask implements IInfoTask {
   }
 
   @Override public void run() {
+    ALog.i(TAG,"M3U8InfoTask -- 执行"+Thread.currentThread().getName());
     Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
+    ALog.i(TAG,"M3U8InfoTask -- 执行1"+Thread.currentThread().getName());
     TrafficStats.setThreadStatsTag(UUID.randomUUID().toString().hashCode());
+    ALog.i(TAG,"M3U8InfoTask -- 执行2"+Thread.currentThread().getName());
     HttpURLConnection conn = null;
     try {
+      ALog.i(TAG,"M3U8InfoTask -- 执行3"+Thread.currentThread().getName());
       URL url = ConnectionHelp.handleUrl(mEntity.getUrl(), mHttpOption);
+      ALog.i(TAG,"M3U8InfoTask -- 执行4"+Thread.currentThread().getName());
       conn = ConnectionHelp.handleConnection(url, mHttpOption);
+      ALog.i(TAG,"M3U8InfoTask -- 执行5"+Thread.currentThread().getName());
       ConnectionHelp.setConnectParam(mHttpOption, conn);
+      ALog.i(TAG,"M3U8InfoTask -- 执行6"+Thread.currentThread().getName());
       conn.setConnectTimeout(mConnectTimeOut);
+      ALog.i(TAG,"M3U8InfoTask -- 执行7"+Thread.currentThread().getName());
       conn.connect();
+      ALog.i(TAG,"M3U8InfoTask -- 执行8 "+Thread.currentThread().getName());
       handleConnect(mEntity.getUrl(), conn);
     } catch (IOException e) {
       failDownload(e.getMessage(), false);
@@ -124,6 +133,7 @@ final public class M3U8InfoTask implements IInfoTask {
   }
 
   private void handleConnect(String tsListUrl, HttpURLConnection conn) throws IOException {
+    ALog.i(TAG,"M3U8InfoTask--handleConnect tsListUrl"+tsListUrl+"HttpURLConnection"+conn.toString());
     int code = conn.getResponseCode();
     if (code == HttpURLConnection.HTTP_OK) {
       BufferedReader reader =

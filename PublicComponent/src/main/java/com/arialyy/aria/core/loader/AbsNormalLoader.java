@@ -233,6 +233,7 @@ public abstract class AbsNormalLoader<T extends AbsTaskWrapper> implements ILoad
       mInfoTask.cancel();
     }
     closeTimer();
+    ALog.i(TAG,"cancel() ---- isCancel = true ");
     isCancel = true;
     onCancel();
     for (int i = 0; i < mTask.size(); i++) {
@@ -269,6 +270,7 @@ public abstract class AbsNormalLoader<T extends AbsTaskWrapper> implements ILoad
       mInfoTask.stop();
     }
     closeTimer();
+    ALog.i(TAG,"stop() ---- isStop = true ");
     isStop = true;
     onStop();
     for (int i = 0; i < mTask.size(); i++) {

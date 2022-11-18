@@ -16,6 +16,8 @@
 package com.arialyy.aria.core.listener;
 
 import android.os.Handler;
+import android.util.Log;
+
 import com.arialyy.aria.core.common.AbsEntity;
 import com.arialyy.aria.core.inf.IEntity;
 import com.arialyy.aria.core.inf.TaskSchedulerType;
@@ -177,6 +179,8 @@ public abstract class BaseListener implements IEventListener {
   }
 
   protected void saveData(int state, long location) {
+    Log.d(TAG, "saveData: -----修改当前任务的状态 state = "+state + "load key "+mEntity.getKey());
+
     mEntity.setState(state);
 
     if (state == IEntity.STATE_CANCEL) {

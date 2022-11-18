@@ -76,7 +76,7 @@ final public class StartCmd<T extends AbsTaskWrapper> extends AbsNormalCmd<T> {
               || state == IEntity.STATE_COMPLETE) {
             resumeTask();
           } else if (state == IEntity.STATE_RUNNING) {
-            ALog.w(TAG, String.format("任务【%s】已经在运行", task.getTaskName()));
+            ALog.w(TAG, String.format("111任务【%s】已经在运行", task.getTaskName()));
           } else {
             ALog.d(TAG, String.format("开始新任务, 任务状态：%s", state));
             startTask();
@@ -106,7 +106,7 @@ final public class StartCmd<T extends AbsTaskWrapper> extends AbsNormalCmd<T> {
           }
         }
       } else {
-        ALog.w(TAG, String.format("任务【%s】已经在运行", task.getTaskName()));
+        ALog.w(TAG, String.format("222任务【%s】已经在运行", task.getTaskName()));
       }
     }
     if (mQueue.getCurrentCachePoolNum() == 0) {

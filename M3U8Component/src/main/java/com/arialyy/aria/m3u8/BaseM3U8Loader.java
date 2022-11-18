@@ -37,6 +37,7 @@ public abstract class BaseM3U8Loader extends AbsNormalLoader<DTaskWrapper> {
 
   public BaseM3U8Loader(DTaskWrapper wrapper, IEventListener listener) {
     super(wrapper, listener);
+    ALog.i(TAG, "BaseM3U8Loader(DTaskWrapper wrapper, IEventListener listener) ");
     mM3U8Option = (M3U8TaskOption) wrapper.getM3u8Option();
     mTempFile = new File(wrapper.getEntity().getFilePath());
   }

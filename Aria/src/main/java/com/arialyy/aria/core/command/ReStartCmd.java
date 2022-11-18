@@ -15,6 +15,8 @@
  */
 package com.arialyy.aria.core.command;
 
+import android.util.Log;
+
 import com.arialyy.aria.core.inf.TaskSchedulerType;
 import com.arialyy.aria.core.task.AbsTask;
 import com.arialyy.aria.core.wrapper.AbsTaskWrapper;
@@ -34,6 +36,7 @@ final class ReStartCmd<T extends AbsTaskWrapper> extends AbsNormalCmd<T> {
       task = createTask();
     }
     if (task != null) {
+      Log.d(TAG, "executeCmd: ReStartCmd------executeCmd()");
       mQueue.cancelTask(task, TaskSchedulerType.TYPE_CANCEL_AND_NOT_NOTIFY);
       mQueue.startTask(task, TaskSchedulerType.TYPE_START_AND_RESET_STATE);
     }

@@ -61,6 +61,7 @@ import java.util.concurrent.ConcurrentHashMap;
   private static final Object LOCK = new Object();
 
   @SuppressLint("StaticFieldLeak") private static volatile AriaManager INSTANCE = null;
+  //记录
   private Map<String, AbsReceiver> mReceivers = new ConcurrentHashMap<>();
   private static Context APP;
   private DelegateWrapper mDbWrapper;
