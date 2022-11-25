@@ -16,6 +16,9 @@
 
 package com.arialyy.aria.core.queue;
 
+import static com.arialyy.aria.core.inf.IEntity.STATE_RUNNING;
+import static com.arialyy.aria.core.inf.IEntity.STATE_WAIT;
+
 import com.arialyy.aria.core.AriaConfig;
 import com.arialyy.aria.core.download.DTaskWrapper;
 import com.arialyy.aria.core.download.DownloadEntity;
@@ -112,6 +115,13 @@ public class DTaskQueue extends AbsTaskQueue<DownloadTask, DTaskWrapper> {
     if (!mCachePool.taskExits(wrapper.getKey()) && !mExecutePool.taskExits(wrapper.getKey())) {
       task = (DownloadTask) TaskFactory.getInstance()
           .createTask(wrapper, TaskSchedulers.getInstance());
+      //ldr fix:将Task的状态重置为STATE_WAIT
+      if (task.getTaskWrapper().getState() == STATE_RUNNING){
+        ALog.d(TAG,"ldr fix:将Task的状态从STATE_RUNNING重置为STATE_WAIT");
+        task.getTaskWrapper().setState(STATE_WAIT);
+      }else{
+        ALog.d(TAG,"ldr 无需重置状态"+task.getTaskWrapper().getState());
+      }
       addTask(task);
     } else {
       ALog.w(TAG, "任务已存在");

@@ -47,7 +47,7 @@ public final class BuilderController extends FeatureController implements IStart
 
   /**
    * 开始任务
-   *
+   * 发送指令对象 new StartCmd<>(entity, taskType); =>在CommandManager类中对应事件回调
    * @return 正常启动，返回任务id，否则返回-1
    */
   public long create() {

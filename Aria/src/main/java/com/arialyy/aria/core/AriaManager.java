@@ -122,7 +122,7 @@ import java.util.concurrent.ConcurrentHashMap;
       Thread.setDefaultUncaughtExceptionHandler(new AriaCrashHandler());
     }
     appConfig.setLogLevel(appConfig.getLogLevel());
-    CommandManager.init();
+    CommandManager.init();//这个事件是专门用来监听其他地方发送Eventbus 让其进行指令操作的
   }
 
   /**

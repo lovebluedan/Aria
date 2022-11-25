@@ -22,6 +22,7 @@ import com.arialyy.aria.util.CommonUtil;
 
 /**
  * 命令处理器
+ * 这里是Event发送事件过来的时候 根据事件名称调用对应的方法
  */
 public class CommandManager {
 
@@ -48,6 +49,7 @@ public class CommandManager {
     }
     cmd.executeCmd();
   }
+
 
   @Event
   public void start(StartCmd cmd) {
